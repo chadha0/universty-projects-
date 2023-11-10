@@ -1,13 +1,12 @@
 
 <?php
+
 use Core\Database;
 use Core\App;
 
 $db = App::resolve(Database::class);
-$currentUserId = 1;
-$note = $db->query('select * from notes where id = :id', [
-    'id' => $_GET['id']
-])->findOrFail();
+$currentUserId = $_SESSION['user']['id'];
+$note = $db->query('select * from notes where id = :id', [':id' => $currentUserId])->findOrFail();
 
 authorize($note['user_id'] === $currentUserId);
 
