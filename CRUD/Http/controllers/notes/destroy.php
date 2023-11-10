@@ -7,9 +7,8 @@ use Core\App;
 $db = App::resolve(Database::class);
 $currentUserId = $_SESSION['user']['id'];
 
-
 $note = $db->query('select * from notes where id = :id', [
-  'id' => $_SESSION['user']['id']
+  'id' => $_POST['id']
 ])->findOrFail();
 
 authorize($note['user_id'] === $currentUserId);
