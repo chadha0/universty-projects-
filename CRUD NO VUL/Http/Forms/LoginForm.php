@@ -11,11 +11,11 @@ class LoginForm
     public function validate($email, $password)
     {
         if (!Validator::email($email)) {
-            $this->errors['email'] = 'Please provide a valid email address.';
+            $this->errors['email'] = 'Please provide a valid email address and password.';
         }
 
         if (!Validator::string($password)) {
-            $this->errors['password'] = 'Please provide a valid password.';
+            $this->errors['password'] = 'Please provide a valid email address and password.';
         }
 
         return empty($this->errors);

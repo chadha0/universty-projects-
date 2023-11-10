@@ -1,4 +1,3 @@
-
 <?php
 
 use Core\App;
@@ -11,7 +10,7 @@ $db = App::resolve(Database::class);
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-
+/* sqli vul */
 $form =  new LoginForm();
 
 if (!$form->validate($email, $password)) {
@@ -25,17 +24,18 @@ $user = $db->query('select * from users where email = :email', [
 ])->find();
 
 
+$user = $db->query("SELECT * FROM users WHERE email = '$email'")->find();
 if ($user) {
-
+    /* sqli vul */
     if (password_verify($password, $user['password'])) {
-    login([
-        'id' => $user['id'] ,
-        'email' => $email
-    ]);
+        login([
+            'id' => $user['id'],
+            'email' => $email
+        ]);
 
-    header('location: /');
-    exit();
-    // }
+        header('location: /');
+        exit();
+    }
 }
 
 return view('session/create.view.php', [

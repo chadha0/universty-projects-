@@ -9,7 +9,7 @@ proxies = {'http': 'http://127.0.0.1:8080', 'https': 'http://127.0.0.1:8080'}
 
 def fileupload(url, file):
     files = {'image': open(file, 'rb')}
-    cookies = {"PHPSESSID": "ll1h7leb5lsdj28t6ndd60ueqg"}
+    cookies = {"PHPSESSID": "lr4d80nn29dmukbflgs7nuv2gp"}
 
     r = requests.post(url, files=files, proxies=proxies,
                       verify=False, allow_redirects=False, cookies=cookies)
