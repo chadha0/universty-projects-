@@ -5,7 +5,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 proxies = {"http": "127.0.0.1:8080", "https": "127.0.0.1:8080"}
 
-emails = ["hidrichadha@dd.com", "xx.xx@xx.x", "dddd@dd.dsd"]
+emails = ["hidrichadha@d.com", "xx.xx@xx.x", "dddd@dd.dsd"]
 passwords = "pass.txt"
 
 
